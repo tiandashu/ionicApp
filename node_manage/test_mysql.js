@@ -5,6 +5,7 @@
 var mysql  = require('mysql');  //调用MySQL模块
 var express = require('express');
 var app = express();
+var connection = require('./config_mysql'); //调用配置
 
 /*设置API响应头*/
 app.all('*', function(req, res, next) {
@@ -27,13 +28,7 @@ var server = app.listen(3000, function () {
 //写个register api
 app.get('/register',function(req,res){
   //创建一个connection 配置数据库信息
-  var connection = mysql.createConnection({
-    host     : 'tianaitian.com',       //主机   本地localhost
-    user     : 'root',            //MySQL认证用户名
-    password : 'hongju0908',        //MySQL认证用户密码 本地ionic123
-    port: '3306',                 //端口号
-    database:'ionicApp'        //库名
-  });
+    connection;
 
   //connection 开始连接数据库
     connection.connect(function(err){

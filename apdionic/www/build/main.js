@@ -336,7 +336,7 @@ var RegisterPage = (function () {
     }
     RegisterPage.prototype.Register = function (username, password) {
         var body = { username: username };
-        this.http.post('http://192.168.3.25:3000/register', JSON.stringify(body))
+        this.http.put('http://192.168.3.25:3000/register', JSON.stringify(body))
             .subscribe(function (res) {
             console.log(res['_body']);
         });
@@ -347,9 +347,10 @@ RegisterPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-register',template:/*ion-inline-start:"C:\Users\Administrator\Desktop\ionicApp\apdionic\src\pages\user\register\register.html"*/'<!--\n\n  Generated template for the Register page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar >\n\n    <ion-title>注册</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <ion-item>\n\n    <ion-label fixed><ion-icon name="phone-portrait"></ion-icon> 账号</ion-label>\n\n    <ion-input type="text" placeholder="请输入账号" #username></ion-input>\n\n  </ion-item>\n\n  <ion-item>\n\n    <ion-label fixed><ion-icon name="unlock"></ion-icon> 设置密码</ion-label>\n\n    <ion-input type="password" placeholder="请输入密码" #password></ion-input>\n\n  </ion-item>\n\n  <ion-item>\n\n    <ion-label fixed><ion-icon name="unlock"></ion-icon> 确认密码</ion-label>\n\n    <ion-input type="password" placeholder="请输入密码" #password></ion-input>\n\n  </ion-item>\n\n\n\n\n\n\n\n  <div margin-top="100px">\n\n    <button ion-button block color="danger" (click)="Register(username, password)">\n\n      注册\n\n    </button>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Administrator\Desktop\ionicApp\apdionic\src\pages\user\register\register.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]) === "function" && _b || Object])
 ], RegisterPage);
 
+var _a, _b;
 //# sourceMappingURL=register.js.map
 
 /***/ }),
