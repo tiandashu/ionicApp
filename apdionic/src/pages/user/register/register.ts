@@ -13,13 +13,14 @@ import { Http,Response } from '@angular/http';
   templateUrl: 'register.html',
 })
 export class RegisterPage {
+
   listData: Object;
-  constructor(public navCtrl: NavController, public http:Http) {
-  }
+
+
+  constructor(public navCtrl: NavController, public http:Http) {}
 
   Register(username,password){
-    var body = {username:username};
-    this.http.put('http://192.168.3.25:3000/register',JSON.stringify(body))
+    this.http.get('http://localhost:3000/register?username='+username.value)
       .subscribe((res:Response)=>{
         console.log(res['_body']);
       })

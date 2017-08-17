@@ -21,12 +21,13 @@ app.all('*', function(req, res, next) {
 var server = app.listen(3000, function () {
     var host = server.address().address;
     var port = server.address().port;
+    console.log(host+":"+port);
 });
 
 
 
 //写个register api
-app.get('/register',function(req,res){
+app.post('/register',function(req,res){
   //创建一个connection 查询特定的库
     var connection = mysqlconfig('ionicApp');
 

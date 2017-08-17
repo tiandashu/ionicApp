@@ -335,8 +335,7 @@ var RegisterPage = (function () {
         this.http = http;
     }
     RegisterPage.prototype.Register = function (username, password) {
-        var body = { username: username };
-        this.http.put('http://192.168.3.25:3000/register', JSON.stringify(body))
+        this.http.get('http://localhost:3000/register?username=' + username.value)
             .subscribe(function (res) {
             console.log(res['_body']);
         });
