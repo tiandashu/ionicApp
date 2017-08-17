@@ -46,7 +46,7 @@ app.get('/register',function(req,res){
 
 
     //执行SQL语句 插入数据
-    connection.query("select * from userinfo where username='"+req.query.username+"'", function(err, rows, fields) {
+    connection.query("select * from usertest where username='"+req.query.username+"'", function(err, rows, fields) {
 
       if (err) {//查询失败
         console.log('[query] - :'+err);
