@@ -28,11 +28,11 @@ var server = app.listen(3000, function () {
 app.get('/register',function(req,res){
   //创建一个connection 配置数据库信息
   var connection = mysql.createConnection({
-    host     : 'localhost',       //主机
+    host     : 'tianaitian.com',       //主机   本地localhost
     user     : 'root',            //MySQL认证用户名
-    password : 'ionic123',        //MySQL认证用户密码
+    password : 'hongju0908',        //MySQL认证用户密码 本地ionic123
     port: '3306',                 //端口号
-    database:'ionic-login'        //库名
+    database:'ionicApp'        //库名
   });
 
   //connection 开始连接数据库
