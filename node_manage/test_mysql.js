@@ -5,7 +5,7 @@
 var mysql  = require('mysql');  //调用MySQL模块
 var express = require('express');
 var app = express();
-var connection = require('./config_mysql'); //调用配置
+var mysqlconfig = require('./config/mysql.connection'); //调用配置
 
 /*设置API响应头*/
 app.all('*', function(req, res, next) {
@@ -27,8 +27,8 @@ var server = app.listen(3000, function () {
 
 //写个register api
 app.get('/register',function(req,res){
-  //创建一个connection 配置数据库信息
-    connection;
+  //创建一个connection 查询特定的库
+    var connection = mysqlconfig('ionicApp');
 
   //connection 开始连接数据库
     connection.connect(function(err){
