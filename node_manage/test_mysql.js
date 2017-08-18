@@ -21,53 +21,63 @@ app.all('*', function(req, res, next) {
 var server = app.listen(3000, function () {
     var host = server.address().address;
     var port = server.address().port;
-    console.log(host+":"+port);
+    console.log("主机:"+host+",端口:"+port);
 });
 
 
 
 //写个register api
-app.get('/register',function(req,res){
-  //创建一个connection 查询特定的库
-    var connection = mysqlconfig('ionicApp');
+app.post('/register',function(req,res){
 
-  //connection 开始连接数据库
-    connection.connect(function(err){
-      if(err){
-        console.log('[connection start]:'+err);
-        return;
-      }
-      console.log('[connection start]: open mysql succeed!');
+    var data='';
+    req.on('data',function (chunk) {
+        data+=chunk;
+
+    });
+    req.on('end', function(){
+        console.log(data);
+        //创建一个connection 查询特定的库
+        var connection = mysqlconfig('ionicApp');
+
+        //connection 开始连接数据库
+        connection.connect(function(err){
+            if(err){
+                console.log('[connection start]:'+err);
+                return;
+            }
+            console.log('[connection start]: open mysql succeed!');
+        });
+
+
+        //执行SQL语句 插入数据
+        connection.query("select * from usertest where username='"+data.username+"'", function(err, rows, fields) {
+
+            if (err) {//查询失败
+                console.log('[query] - :'+err);
+                return;
+            }
+            if(rows[0]== undefined){
+                res.status(200),
+                    res.send("该账号可以使用");
+            }else if(req.query.username == rows[0].username){//procedure
+                res.status(200),
+                    res.send("此账号已存在，请重新输入");
+            }
+
+            //关闭connection
+            connection.end(function(err){
+                if(err){
+                    console.log('[connection end]:'+err);
+                    return;
+                }
+                console.log('[connection end]close mysql succeed!');
+            });
+
+
+        });
     });
 
 
-    //执行SQL语句 插入数据
-    connection.query("select * from usertest where username='"+req.query.username+"'", function(err, rows, fields) {
-
-      if (err) {//查询失败
-        console.log('[query] - :'+err);
-        return;
-      }
-
-      if(rows[0]== undefined){
-        res.status(200),
-        res.send("该账号可以使用");
-      }else if(req.query.username == rows[0].username){//procedure
-        res.status(200),
-        res.send("此账号已存在，请重新输入");
-      }
-
-      //关闭connection
-      connection.end(function(err){
-        if(err){
-          console.log('[connection end]:'+err);
-          return;
-        }
-        console.log('[connection end]close mysql succeed!');
-      });
-
-
-    });
 
 
 });

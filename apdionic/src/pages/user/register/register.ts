@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Http,Response,Headers } from '@angular/http';
+import { Http,Response,Headers,RequestOptions } from '@angular/http';
 
 /**
  * Generated class for the Register page.
@@ -14,13 +14,16 @@ import { Http,Response,Headers } from '@angular/http';
 })
 export class RegisterPage {
 
-  constructor(public navCtrl: NavController, public http:Http) {}
-
+  constructor(public navCtrl: NavController, public http:Http) {
+  }
+  private header = new Headers({'Content-Type': 'application/x-www-form-urlencoded'})
   Register(username,password){
-    this.http.post('http://localhost:3000/register',{username:username.value})
-      .subscribe((res:Response)=>{
-        alert(res['_body']);
+    console.log(username.value);
+    this.http.post('http://localhost:3000/register', JSON.stringify({username:username.value,password:password.value}), new RequestOptions({headers: this.header}))
+      .subscribe((res: Response) => {
+        console.log(res['_body']);
       })
+
   }
 
 }

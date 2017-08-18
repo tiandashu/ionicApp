@@ -333,11 +333,13 @@ var RegisterPage = (function () {
     function RegisterPage(navCtrl, http) {
         this.navCtrl = navCtrl;
         this.http = http;
+        this.header = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/x-www-form-urlencoded' });
     }
     RegisterPage.prototype.Register = function (username, password) {
-        this.http.post('http://localhost:3000/register', { username: username.value })
+        console.log(username.value);
+        this.http.post('http://localhost:3000/register', JSON.stringify({ username: username.value, password: password.value }), new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: this.header }))
             .subscribe(function (res) {
-            alert(res['_body']);
+            console.log(res['_body']);
         });
     };
     return RegisterPage;
@@ -346,7 +348,7 @@ RegisterPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-register',template:/*ion-inline-start:"C:\Users\Administrator\Desktop\ionicApp\apdionic\src\pages\user\register\register.html"*/'<!--\n\n  Generated template for the Register page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar >\n\n    <ion-title>注册</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <ion-item>\n\n    <ion-label fixed><ion-icon name="phone-portrait"></ion-icon> 账号</ion-label>\n\n    <ion-input type="text" placeholder="请输入账号" #username></ion-input>\n\n  </ion-item>\n\n  <ion-item>\n\n    <ion-label fixed><ion-icon name="unlock"></ion-icon> 设置密码</ion-label>\n\n    <ion-input type="password" placeholder="请输入密码" #password></ion-input>\n\n  </ion-item>\n\n  <ion-item>\n\n    <ion-label fixed><ion-icon name="unlock"></ion-icon> 确认密码</ion-label>\n\n    <ion-input type="password" placeholder="请输入密码" #password></ion-input>\n\n  </ion-item>\n\n\n\n\n\n\n\n  <div margin-top="100px">\n\n    <button ion-button block color="danger" (click)="Register(username, password)">\n\n      注册\n\n    </button>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Administrator\Desktop\ionicApp\apdionic\src\pages\user\register\register.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _b || Object])
 ], RegisterPage);
 
 var _a, _b;
@@ -438,7 +440,7 @@ HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-home',template:/*ion-inline-start:"C:\Users\Administrator\Desktop\ionicApp\apdionic\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Home</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <ion-list *ngFor="let item of listData">\n\n    <ion-item>\n\n      <ion-avatar item-left>\n\n        <img [src]="item?.url">\n\n      </ion-avatar>\n\n      {{item?.title}}\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Administrator\Desktop\ionicApp\apdionic\src\pages\home\home.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
 ], HomePage);
 
 //# sourceMappingURL=home.js.map
@@ -537,7 +539,7 @@ AppModule = __decorate([
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_7__angular_http__["b" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_http__["c" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */]),
             __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["a" /* IonicStorageModule */].forRoot()
         ],
