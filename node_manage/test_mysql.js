@@ -27,7 +27,7 @@ var server = app.listen(3000, function () {
 
 
 //写个register api
-app.post('/register',function(req,res){
+app.get('/register',function(req,res){
   //创建一个connection 查询特定的库
     var connection = mysqlconfig('ionicApp');
 

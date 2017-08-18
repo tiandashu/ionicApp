@@ -335,9 +335,9 @@ var RegisterPage = (function () {
         this.http = http;
     }
     RegisterPage.prototype.Register = function (username, password) {
-        this.http.get('http://localhost:3000/register?username=' + username.value)
+        this.http.post('http://localhost:3000/register', { username: username.value })
             .subscribe(function (res) {
-            console.log(res['_body']);
+            alert(res['_body']);
         });
     };
     return RegisterPage;
