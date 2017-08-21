@@ -390,7 +390,7 @@ var RegisterPage = (function () {
         console.log(username.value);
         this.http.post('http://tianaitian.com:3000/register', JSON.stringify({ username: username.value, password: password.value }), new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: this.header }))
             .subscribe(function (res) {
-            console.log(res['_body']);
+            alert(res['_body']);
         });
     };
     return RegisterPage;
@@ -692,15 +692,20 @@ var LoginPage = (function () {
     LoginPage.prototype.GoRegister = function () {
         this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_3__register_register__["a" /* RegisterPage */]).present();
     };
+    /*先逛逛*/
+    LoginPage.prototype.GoTabs = function () {
+        this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_2__tabs_tabs__["a" /* TabsPage */]).present();
+    };
     return LoginPage;
 }());
 LoginPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-login',template:/*ion-inline-start:"C:\Users\Administrator\Desktop\ionicApp\apdionic\src\pages\user\login\login.html"*/'<!--\n\n  Generated template for the Login page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<!--\n\n  Generated template for the Register page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <ion-item>\n\n    <ion-label fixed><ion-icon name="phone-portrait"></ion-icon> 手机号</ion-label>\n\n    <ion-input type="text" placeholder="请输入手机号" #username></ion-input>\n\n  </ion-item>\n\n  <ion-item>\n\n    <ion-label fixed><ion-icon name="unlock"></ion-icon> 密码</ion-label>\n\n    <ion-input type="password" placeholder="请输入密码" #password></ion-input>\n\n  </ion-item>\n\n  <ion-item no-lines>\n\n    <a item-right class="forget_pwd">忘记密码？</a>\n\n  </ion-item>\n\n  <!--<ion-item no-lines>-->\n\n    <!--<label item-right>记住密码</label>-->\n\n    <!--<ion-toggle assertive></ion-toggle>-->\n\n  <!--</ion-item>-->\n\n\n\n\n\n\n\n  <div>\n\n    <button ion-button block color="danger" (click)="logIn(username, password)">\n\n      登录\n\n    </button>\n\n  </div>\n\n  <ion-item no-lines>\n\n    <a item-left>先逛逛</a>\n\n    <a item-right (click)="GoRegister()">去注册</a>\n\n  </ion-item>\n\n  <!--第三方登录-->\n\n  <div style="margin-top:30px;">\n\n    <ion-grid>\n\n      <ion-row>\n\n        <ion-col width-33 class="qq">\n\n          <img src="assets/images/qq.png" alt="">\n\n          <p>QQ</p>\n\n        </ion-col>\n\n        <ion-col width-33>\n\n          <img src="assets/images/weixin.png" alt="">\n\n          <p>微信</p>\n\n        </ion-col>\n\n        <ion-col width-33>\n\n          <img src="assets/images/weibo.png" alt="">\n\n          <p>微博</p>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </div>\n\n</ion-content>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'/*ion-inline-end:"C:\Users\Administrator\Desktop\ionicApp\apdionic\src\pages\user\login\login.html"*/,
+        selector: 'page-login',template:/*ion-inline-start:"C:\Users\Administrator\Desktop\ionicApp\apdionic\src\pages\user\login\login.html"*/'<!--\n  Generated template for the Login page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<!--\n  Generated template for the Register page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-item>\n    <ion-label fixed><ion-icon name="phone-portrait"></ion-icon> 手机号</ion-label>\n    <ion-input type="text" placeholder="请输入手机号" #username></ion-input>\n  </ion-item>\n  <ion-item>\n    <ion-label fixed><ion-icon name="unlock"></ion-icon> 密码</ion-label>\n    <ion-input type="password" placeholder="请输入密码" #password></ion-input>\n  </ion-item>\n  <ion-item no-lines>\n    <a item-right class="forget_pwd">忘记密码？</a>\n  </ion-item>\n  <!--<ion-item no-lines>-->\n    <!--<label item-right>记住密码</label>-->\n    <!--<ion-toggle assertive></ion-toggle>-->\n  <!--</ion-item>-->\n\n\n\n  <div>\n    <button ion-button block color="danger" (click)="logIn(username, password)">\n      登录\n    </button>\n  </div>\n  <ion-item no-lines>\n    <a item-left (click)="GoTabs()">先逛逛</a>\n    <a item-right (click)="GoRegister()">去注册</a>\n  </ion-item>\n  <!--第三方登录-->\n  <div style="margin-top:30px;">\n    <ion-grid>\n      <ion-row>\n        <ion-col width-33 class="qq">\n          <img src="assets/images/qq.png" alt="">\n          <p>QQ</p>\n        </ion-col>\n        <ion-col width-33>\n          <img src="assets/images/weixin.png" alt="">\n          <p>微信</p>\n        </ion-col>\n        <ion-col width-33>\n          <img src="assets/images/weibo.png" alt="">\n          <p>微博</p>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </div>\n</ion-content>\n\n\n\n\n\n\n\n\n\n\n'/*ion-inline-end:"C:\Users\Administrator\Desktop\ionicApp\apdionic\src\pages\user\login\login.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ViewController */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ModalController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ViewController */]) === "function" && _c || Object])
 ], LoginPage);
 
+var _a, _b, _c;
 //# sourceMappingURL=login.js.map
 
 /***/ })

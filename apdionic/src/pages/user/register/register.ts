@@ -21,7 +21,7 @@ export class RegisterPage {
     console.log(username.value);
     this.http.post('http://tianaitian.com:3000/register', JSON.stringify({username:username.value,password:password.value}), new RequestOptions({headers: this.header}))
       .subscribe((res: Response) => {
-        console.log(res['_body']);
+        alert(res['_body']);
       })
 
   }
