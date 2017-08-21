@@ -19,7 +19,7 @@ export class RegisterPage {
   private header = new Headers({'Content-Type': 'application/x-www-form-urlencoded'})
   Register(username,password){
     console.log(username.value);
-    this.http.post('http://localhost:3000/register', JSON.stringify({username:username.value,password:password.value}), new RequestOptions({headers: this.header}))
+    this.http.post('http://tianaitian.com:3000/register', JSON.stringify({username:username.value,password:password.value}), new RequestOptions({headers: this.header}))
       .subscribe((res: Response) => {
         console.log(res['_body']);
       })

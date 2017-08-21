@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import {TabsPage} from "../tabs/tabs";
+import {LoginPage} from "../user/login/login";
 
 @Component({
   selector: 'page-welcome',
@@ -13,7 +13,7 @@ export class WelcomePage {
 
   }
   goToRoot(){
-    this.navCtrl.push(TabsPage);
+    this.navCtrl.push(LoginPage);
   }
   //TODO 欢迎页不能每次打开的时候加载，安装或者升级后打开
 }
