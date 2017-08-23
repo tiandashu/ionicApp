@@ -51,5 +51,8 @@ export class LoginPage {
   GoRegister():void{
     this.modalCtrl.create(RegisterPage).present();
   }
-
+  /*先逛逛*/
+  GoTabs():void{
+    this.modalCtrl.create(TabsPage).present();
+  }
 }
