@@ -42,8 +42,34 @@ $colors: (
 );
 
 
+//定义间距-------混合指令,用于定义margin和padding
 
+//@mixin  space-style($direction,$width){
+//  $direction:$width;
+//}
+$p:padding;
+$m:margin;
 
+@mixin space-style($space,$t,$r,$b,$l){
+@if($space==m){
+  $m:$t $r $b $l;
+}@else if($space==p){
+  $p:$t $r $b $l;
+}
+}
+
+//使用的时候   space-style(m,10,0,0,55)
+//定义圆角
+//@mixin box-shadow($shadows...) {
+//  -moz-box-shadow: $shadows;
+//  -webkit-box-shadow: $shadows;
+//  box-shadow: $shadows;
+//}
+//定义
+
+//div{
+//  @include margin-style(top,20px);
+//}
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here

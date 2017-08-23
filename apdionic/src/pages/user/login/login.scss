@@ -8,13 +8,16 @@ page-login {
     background-size: 100% 100%;
   }
   ion-icon{
-    margin-right: 10px;
+    //margin-right: 10px;
+    @include space-style(m,0,20px,0,0);
   }
   ion-content{
-    margin-top:50px;
+    //margin-top:50px;
+    @include space-style(m,50px,0,0,0);
   }
   .item-ios,.item-md{
-    padding-right: 16px;
+    //padding-right: 16px;
+    @include space-style(p,0,20px,0,0);
   }
   ion-item a{
     color: color($colors,dark);
