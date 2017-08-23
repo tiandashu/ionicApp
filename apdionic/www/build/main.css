@@ -25266,7 +25266,7 @@ page-bind-account ion-col {
 }
 
 page-bind-account ion-col img {
-  height: 30% !important;
+  height: 40% !important;
 }
 
 page-bind-account ion-icon::before {
@@ -25287,18 +25287,6 @@ page-login ion-header {
   background-size: 100% 100%;
 }
 
-page-login ion-icon {
-  margin-right: 10px;
-}
-
-page-login ion-content {
-  margin-top: 50px;
-}
-
-page-login .item-ios, page-login .item-md {
-  padding-right: 16px;
-}
-
 page-login ion-item a {
   color: #3d3d3d;
   text-decoration: none;
@@ -25317,7 +25305,7 @@ page-login ion-col {
 }
 
 page-login ion-col img {
-  height: 30%;
+  height: 40%;
 }
 
 page-login ion-icon::before {
