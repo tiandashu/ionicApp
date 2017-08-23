@@ -1,3 +1,14 @@
 page-home {
+  $link-color: blue;
+  $link-color: red!default;
+  @mixin link-colors($normal:blue,$hover: $normal,$visited: $normal){
+    color: $normal;
+    &:hover { color: $hover; }
+    &:visited { color: $visited; }
+  }
+  a {
+    color: $link-color;
+    @include link-colors(pink)
+  }
 
 }

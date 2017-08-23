@@ -14,10 +14,10 @@ export class HomePage {
   }
   ionViewDidLoad() {
     // 网络请求
-    this.http.request('http://jsonplaceholder.typicode.com/photos')
-      .toPromise().then(res=>{this.listData=res.json();})
-      .catch(err=>{ console.log(err);} );
-
-  }
+  //   this.http.request('http://jsonplaceholder.typicode.com/photos')
+  //     .toPromise().then(res=>{this.listData=res.json();})
+  //     .catch(err=>{ console.log(err);} );
+  //
+   }
 
 }

@@ -25199,6 +25199,19 @@ ion-navbar.toolbar {
   }
 }
 
+page-home a {
+  color: blue;
+  color: pink;
+}
+
+page-home a:hover {
+  color: pink;
+}
+
+page-home a:visited {
+  color: pink;
+}
+
 page-setting .toolbar-title-md {
   text-align: center;
 }
