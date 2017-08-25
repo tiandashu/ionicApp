@@ -4,35 +4,112 @@
 // Font path is used to include ionicons,
 // roboto, and noto sans fonts
 $font-path: "../assets/fonts";
-
-
-// The app direction is used to include
-// rtl styles in your app. For more info, please see:
-// http://ionicframework.com/docs/theming/rtl-support/
 $app-direction: ltr;
-
-
 @import "ionic.globals";
+@import "ionic.theme.default";
+@import "ionic.ionicons";
+@import "roboto";
+@import "noto-sans";
 
 
-// Shared Variables
-// --------------------------------------------------
-// To customize the look and feel of this app, you can override
-// the Sass variables found in Ionic's source scss files.
-// To view all the possible Ionic variables, see:
-// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+/*公共样式部分*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+  display: block;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+input{
+  background:none;
+}
+audio,canvas,video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+
+th {
+  text-align: inherit
+}
+
+fieldset,img {
+  border: 0;
+}
+
+iframe {
+  display: block;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+address,caption,cite,code,dfn,em,th,var,i,b {
+  font-style: normal;
+  font-weight: 500;
+}
+
+ul {
+  list-style: none;
+}
+
+h1,h2,h3,h4,h5,h6,b {
+  font-size: 100%;
+  font-weight: 500;
+}
+
+q:before,q:after {
+  content: '';
+}
+
+a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  text-decoration:none;
+  &:visited,&:hover{
+    text-decoration: none;
+  }
+}
 
 
+body .hide {
+  display: none;
+}
 
+body .hide2 {
+  visibility: hidden;
+}
 
-// Named Color Variables
-// --------------------------------------------------
-// Named colors makes it easy to reuse colors on various components.
-// It's highly recommended to change the default colors
-// to match your app's branding. Ionic uses a Sass map of
-// colors so you can add, rename and remove colors as needed.
-// The "primary" color is the only required color in the map.
+body .hide3 {
+  position: absolute;
+  left: -99999px;
+  top: -99999px;
+}
 
+html,body {
+  min-height: 100%;
+  background: #f3f2f2;
+}
+
+html,body,button,input,select,textarea {
+  font: 14px/1.5 arial,Microsoft YaHei,\5b8b\4f53;
+  color: #666;
+}
+
+input,select,textarea {
+  font-size: 100%;
+  outline:none;
+}
+
+//定义页面颜色
 $colors: (
   primary:    #488aff,
   secondary:  #32db64,
@@ -40,7 +117,6 @@ $colors: (
   light:      #ffffff,
   dark:       #3d3d3d
 );
-
 
 //定义间距-------混合指令,用于定义margin和padding
 
@@ -57,60 +133,14 @@ $m:margin;
   $p:$t $r $b $l;
 }
 }
-
 //使用的时候   space-style(m,10,0,0,55)
+
 //定义圆角
-//@mixin box-shadow($shadows...) {
-//  -moz-box-shadow: $shadows;
-//  -webkit-box-shadow: $shadows;
-//  box-shadow: $shadows;
-//}
-//定义
-
-//div{
-//  @include margin-style(top,20px);
-//}
-// App iOS Variables
-// --------------------------------------------------
-// iOS only Sass variables can go here
+@mixin box-shadow($shadows...) {
+  -moz-box-shadow: $shadows;
+  -webkit-box-shadow: $shadows;
+  box-shadow: $shadows;
+}
 
 
 
-
-// App Material Design Variables
-// --------------------------------------------------
-// Material Design only Sass variables can go here
-
-
-
-
-// App Windows Variables
-// --------------------------------------------------
-// Windows only Sass variables can go here
-
-
-
-
-// App Theme
-// --------------------------------------------------
-// Ionic apps can have different themes applied, which can
-// then be future customized. This import comes last
-// so that the above variables are used and Ionic's
-// default are overridden.
-
-@import "ionic.theme.default";
-
-
-// Ionicons
-// --------------------------------------------------
-// The premium icon font for Ionic. For more info, please see:
-// http://ionicframework.com/docs/ionicons/
-
-@import "ionic.ionicons";
-
-
-// Fonts
-// --------------------------------------------------
-
-@import "roboto";
-@import "noto-sans";
